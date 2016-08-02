@@ -2,14 +2,17 @@
 var express = require('express');
 
 var app = express();
-var server = app.listen(3000);
-
-app.use(express.static('app'));
+// var server = app.listen(3000);
 
 
-
- console.log("test my node js server on port 3000");
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
  
+server.listen(server_port, server_ip_address, function () {
+  console.log( "Listening on " + server_ip_address + ", server_port " + port )
+});
+
+ app.use(express.static('app')); 
  var socket = require('socket.io');
  
  var io = socket(server);
