@@ -6,7 +6,7 @@ var app = express();
 // var server = app.listen(3000);
 
 
-var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3000
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
  
 var server = app.listen(server_port, server_ip_address, function () {
@@ -15,7 +15,7 @@ var server = app.listen(server_port, server_ip_address, function () {
 
  
 
- app.use(express.static('app'));
+ app.use(express.static('public'));
  
  var socket = require('socket.io');
  
