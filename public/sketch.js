@@ -2,7 +2,7 @@ function setup() {
     createCanvas(900, 600);
     background(51);
     
-    socket = io.connect('localhost:3000');
+    socket = io.connect('http://test-simplonco.rhcloud.com/:8080');
     socket.on('mouse', newDrawing);
 }
 
